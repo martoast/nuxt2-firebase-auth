@@ -38,12 +38,12 @@ export default {
       '@nuxtjs/firebase',
       {
         config: {
-          apiKey: "AIzaSyDTYx-D0k7HZgDZ6EFsiNaWbWLMJWorrhc",
-          authDomain: "pinclick-d754d.firebaseapp.com",
-          projectId: "pinclick-d754d",
-          storageBucket: "pinclick-d754d.appspot.com",
-          messagingSenderId: "597227273470",
-          appId: "1:597227273470:web:8714df15eccef3ff7bb9af"
+          apiKey: "AIzaSyCwNhldysAEyELi00BjqOIYl_sxiLiprCA",
+          authDomain: "to-do-cab39.firebaseapp.com",
+          projectId: "to-do-cab39",
+          storageBucket: "to-do-cab39.appspot.com",
+          messagingSenderId: "170103431087",
+          appId: "1:170103431087:web:fcaa10c40d3b629738995a"
         },
         services: {
           auth: true // Just as example. Can be any other service.
