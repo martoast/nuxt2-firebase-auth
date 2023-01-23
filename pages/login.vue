@@ -29,26 +29,25 @@
     },
     data() {
       return {
+        loading: false,
         form: {
           email: null,
           password: null
         },
-        user: null,
         errorCode: null,
         errorMessage: null
       }
     },
     methods: {
       async onSubmit() {
-        await this.$fire.auth.signInWithEmailAndPassword(this.form.email, this.form.password).then((userCredential) => {
-          // Signed in 
-          this.user = userCredential.user;
-          console.log("Log in was successfull! ", this.user)
-        })
-        .catch((error) => {
-          this.errorCode = error.code;
-          this.errorMessage = error.message;
-        });
+       this.loading = true;
+        try {
+          await this.$fire.auth.signInWithEmailAndPassword(this.form.email, this.form.password)
+        }
+        catch (e) {
+          console.error(e.message)
+        }
+        this.loading = false;
       }
     },
   }

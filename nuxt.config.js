@@ -22,6 +22,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    "./plugins/mixins/user.js",
+    "./plugins/mixins/validation.js",
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -46,23 +48,20 @@ export default {
           messagingSenderId: process.env.FIREBASE_MESSEAGINGSENDERID,
           appId: process.env.FIREBASE_APPID
         },
-        services: {
-          auth: true // Just as example. Can be any other service.
+        services:{
+          auth:{
+            persistence: 'local', // default
+            initialize:{
+              onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
+              // onAuthStateChangedAction: 'onAuthStateChangedAction',
+            }
+          },
+          firestore: true,
         }
       }
     ]
   ],
-  auth: {
-    persistence: 'local', // default
-    initialize: {
-      onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
-      onAuthStateChangedAction: 'onAuthStateChangedAction',
-      subscribeManually: false
-    },
-    ssr: false, // default
-    emulatorPort: 9099,
-    emulatorHost: 'http://localhost',
-  },
+
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
