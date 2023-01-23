@@ -5,14 +5,13 @@
           Sign up page
         </h1>
         <b-form @submit.prevent="onSubmit">
-          <b-input-container>
+          
             <b-input class="mb-3" type="username" placeholder="Enter Email address" v-model="form.email">
             </b-input>
-          </b-input-container>
-          <b-input-container>
+        
+      
             <b-input class="mb-3" type="password" placeholder="Enter password" v-model="form.password">
             </b-input>
-          </b-input-container>
           <b-btn @click="onSubmit">
             submit
           </b-btn>

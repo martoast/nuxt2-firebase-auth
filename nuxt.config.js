@@ -34,16 +34,17 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     "bootstrap-vue/nuxt",
+    "@nuxtjs/dotenv",
     [
       '@nuxtjs/firebase',
       {
         config: {
-          apiKey: "AIzaSyCwNhldysAEyELi00BjqOIYl_sxiLiprCA",
-          authDomain: "to-do-cab39.firebaseapp.com",
-          projectId: "to-do-cab39",
-          storageBucket: "to-do-cab39.appspot.com",
-          messagingSenderId: "170103431087",
-          appId: "1:170103431087:web:fcaa10c40d3b629738995a"
+          apiKey: process.env.FIREBASE_API_KEY,
+          authDomain: process.env.FIREBASE_AUTHDOMAIN,
+          projectId: process.env.FIREBASE_PROJECTID,
+          storageBucket: process.env.FIREBASE_STORAGEBUCKET,
+          messagingSenderId: process.env.FIREBASE_MESSEAGINGSENDERID,
+          appId: process.env.FIREBASE_APPID
         },
         services: {
           auth: true // Just as example. Can be any other service.
