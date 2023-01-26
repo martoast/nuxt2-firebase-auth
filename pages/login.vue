@@ -41,15 +41,11 @@
         try {
           await this.$fire.auth.signInWithEmailAndPassword(this.form.email, this.form.password).then( authUser => {
             return authUser.user.getIdToken().then( idToken => {
-              const expiresIn = 60 * 60 * 24 * 5 * 1000;
-              // this.$fire.auth.createSessionCookie(idToken, { expiresIn })
-              console.log(authUser.user.auth)
-              // console.log(authUser.user.createSessionCookie(idToken, { expiresIn }))
+              console.log(idToken)
               
             })
           })          
 
-          // await this.$fire.auth.signOut
           // window.location.assign('/dashboard');
         }
         catch (e) {
