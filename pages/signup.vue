@@ -32,22 +32,18 @@
           email: null,
           password: null
         },
-        user: null,
         errorCode: null,
         errorMessage: null
       }
     },
     methods: {
       async onSubmit() {
-        await this.$fire.auth.createUserWithEmailAndPassword(this.form.email, this.form.password).then((userCredential) => {
-          // Signed in 
-          this.user = userCredential.user;
-          console.log("Account register successfull! ",this.user)
-        })
-        .catch((error) => {
-          this.errorCode = error.code;
-          this.errorMessage = error.message;
-        });
+        try {
+          await this.$fire.auth.createUserWithEmailAndPassword(this.form.email, this.form.password)
+        }
+        catch (e) {
+          console.error(e)
+        }
       }
     },
   }

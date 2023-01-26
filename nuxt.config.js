@@ -36,6 +36,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     "bootstrap-vue/nuxt",
+    "@nuxtjs/axios",
     "@nuxtjs/dotenv",
     [
       '@nuxtjs/firebase',
@@ -50,7 +51,7 @@ export default {
         },
         services:{
           auth:{
-            persistence: 'local', // default
+            persistence: 'none',
             initialize:{
               onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
               // onAuthStateChangedAction: 'onAuthStateChangedAction',
@@ -62,6 +63,9 @@ export default {
     ]
   ],
 
+  router: {
+    middleware: ["auth"]
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

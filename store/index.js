@@ -1,13 +1,14 @@
 
 export const state = () => ({
-  user: {},
+  user: null,
 })
 
 export const mutations = {
   ON_AUTH_STATE_CHANGED_MUTATION: (state, {authUser, claims}) => {
-    // Do this:
-    const {uid, email, emailVerified} = authUser
-    state.user = {uid, email, emailVerified}
+    if (authUser) {  
+      const {uid, email, emailVerified} = authUser
+      state.user = {uid, email, emailVerified}
+    }    
   },
 }
 
